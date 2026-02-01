@@ -1,6 +1,7 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TSLintPlugin = require('tslint-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -63,4 +64,12 @@ module.exports = {
 			}),
 		],
 	},
+	devServer: {
+		historyApiFallback: {
+			disableDotRule: true,
+		},
+		static: {
+			directory: path.join(__dirname, 'www'),
+		},
+	}
 };
